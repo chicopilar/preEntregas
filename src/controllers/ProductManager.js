@@ -15,7 +15,6 @@ class ProductManager {
     }
 
     exist = async (id)=>{
-        console.log("id desde exist", id)
         let products = await this.readProducts()
         return products.find(prod => prod.id === id)
     }
@@ -35,7 +34,8 @@ class ProductManager {
 
     getProductsXId = async(id) => {
         let productsXId = await this.exist(id)
-        if (productsXId){return productsXId}
+        if (!productsXId) return "Producto no encontrado"
+        return productsXId
     };
 
     productUpdate = async (id, updatedProduct)=> {
