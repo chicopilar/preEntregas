@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import ProductManager from './ProductManager.js';
+import ProductManager from './productManager.js';
 
 const prodAll = new ProductManager
 
