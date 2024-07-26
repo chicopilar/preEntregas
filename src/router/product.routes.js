@@ -18,9 +18,13 @@ ProductRouter.get ("/:pid", async (req, res)=>{
 });
 
 ProductRouter.post ("/", async (req, res)=>{
-    let newProduct = req.body
-    res.send (await product.addProducts(newProduct))
-});
+    const {title,description, code, price, stock, category} = req.body
+    if (!title||!description||!code||!price||!stock||!category){
+        return res.status(400).json ({message:'Todos los campos son requeridos'})    
+    }
+    let newProduct = {title, description,code, price,stock,category}
+    res.status(200).json (await product.addProducts(newProduct))
+})
 
 ProductRouter.put ("/:pid" , async (req, res) =>{
     let id = parseInt(req.params.pid)

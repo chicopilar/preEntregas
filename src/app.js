@@ -39,6 +39,7 @@ socketServer.on("connection", socket=>{
     socket.on('addProduct', (product) => {
         allProducts.addProducts(product)
         product.id = products.length ? products[products.length -1].id +1:1;
+        product.status = true
         products.push(product)
         socket.emit('products', products); // Enviar lista actualizada a todos los clientes
     });
