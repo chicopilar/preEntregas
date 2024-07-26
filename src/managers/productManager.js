@@ -22,6 +22,7 @@ class ProductManager {
     addProducts = async (product) => {
         let productsReaded = await this.readProducts();
         let nextId = productsReaded.length ? productsReaded[productsReaded.length -1].id +1:1;
+        product.id = nextId
         product.status = true
         let allProducts = [...productsReaded , product];
         await this.writeProducts(allProducts);

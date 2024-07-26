@@ -27,7 +27,6 @@ const httpServer= app.listen (PORT,() => console.log (`Server Express running on
 const socketServer = new Server(httpServer)
 const allProducts = new  ProductManager();
 
-
 let products = await allProducts.readProducts()
 
 socketServer.on("connection", socket=>{
@@ -38,8 +37,9 @@ socketServer.on("connection", socket=>{
     socket.emit('products', products);
 
     socket.on('addProduct', (product) => {
-        products.push(product)
         allProducts.addProducts(product)
+        product.id = products.length ? products[products.length -1].id +1:1;
+        products.push(product)
         socket.emit('products', products); // Enviar lista actualizada a todos los clientes
     });
     

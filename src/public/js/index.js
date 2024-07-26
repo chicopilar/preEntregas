@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('productList');
     productList.innerHTML = '';
     products.forEach((product) => {
+      console.log(product.id)
       const li = document.createElement('li');
-      li.textContent = `ID: ${product.id} - Title: ${product.title} - Description: ${product.despcription} - Code: ${product.code} - Price: $${product.price} - Stock: ${product.stock} - Category: ${product.category} - Thumbnails: ${product.thumbnails} - Status: ${product.status}`;
+      li.textContent = `ID: ${product.id} - Title: ${product.title} - Description: ${product.despcription} - Code: ${product.code} - Price: $${product.price} - Stock: ${product.stock} - Category: ${product.category} - Thumbnails: ${product.thumbnails} - Status: ${product.status} - `;
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'Delete';
       deleteButton.onclick = () => socket.emit('deleteProduct', product.id);
@@ -24,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const productForm = document.getElementById('productForm');
   productForm.onsubmit = (e) => {
     e.preventDefault();
-    const id = document.getElementById('id').value;
     const title = document.getElementById('title').value;
     const despcription = document.getElementById('despcription').value;
     const code = document.getElementById('code').value;
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbnails = document.getElementById('thumbnails').value;
 
 
-    socket.emit('addProduct', {id, title, despcription, code, price, stock, category, thumbnails});
+    socket.emit('addProduct', {title, despcription, code, price, stock, category, thumbnails});
     productForm.reset();
   };
 });
