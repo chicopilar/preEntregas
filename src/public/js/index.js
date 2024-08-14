@@ -224,7 +224,7 @@ function updateProductStock(productId, newStock) {
     }
 }
 
-function fetchProducts(page = 1, limit = 10, sort = '', query = '') {
+function fetchProducts(page, limit=10, sort = '', query = '') {
     fetch(`/api/products?page=${page}&limit=${limit}&sort=${sort}&query=${query}`)
         .then(response => response.json())
         .then(response => {
@@ -264,11 +264,7 @@ socket.on('productRemoved', (data) => {
         productItem.remove();
     }
 });
-/*
-socket.on('productData', (data) => {
-    addProductToList(data);
-});
-*/
+
 function updateProductStock(productId, newStock) {
     const stockElement = document.getElementById(`stock-${productId}`);
     if (stockElement) {

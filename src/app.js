@@ -1,5 +1,5 @@
 import express, { json, urlencoded } from 'express';
-import configureProductsRouter from './routes/product.routes.js';
+import configureRouter from './routes/product.routes.js';
 import configureCartsRouter from './routes/carts.routes.js';
 import viewsRouter from './routes/views.routes.js';
 import handlebars from 'express-handlebars';
@@ -45,7 +45,7 @@ socketServer.on("connection", socket=>{
     
 });
 app.use("/api/carts", configureCartsRouter(socketServer)); 
-app.use("/api/products", configureProductsRouter(socketServer));
+app.use("/api/products", configureRouter(socketServer));
 app.use("/", viewsRouter);
 
 httpServer.listen(PORT, () => {

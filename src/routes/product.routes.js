@@ -6,20 +6,21 @@ const router = Router();
 
 router.get('/', async (req, res) => {
 
-    let { limit = 3, page = 2, sort, query, category, title } = req.query;
-    console.log(limit)
+    const { limit = 10, page = 1, sort, query } = req.query;
+
     let filter = {};
     if (query) {
         const queryParts = query.split('=');
         if (queryParts.length === 2 && queryParts[0] === 'category') {
             filter.category = { $regex: queryParts[1], $options: 'i' };
-            } else if (queryParts.length === 2 && queryParts[0] === 'status') {
-                filter.status = queryParts[1] === 'true';
-                }
-                }
+        } else if (queryParts.length === 2 && queryParts[0] === 'status') {
+            filter.status = queryParts[1] === 'true';
+        }
+    }
+
     const options = {
-        page: parseInt(page),
-        limit: parseInt(limit),
+        page: parseInt(page, 10),
+        limit: parseInt(limit, 10),
         sort: sort ? { price: sort === 'asc' ? 1 : -1 } : {}
     };
     try {
