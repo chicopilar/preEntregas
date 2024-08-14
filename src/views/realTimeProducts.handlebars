@@ -1,33 +1,37 @@
-<h1>Product List</h1>
-  <ul id="productList"></ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Products and Cart</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Real-Time Products and Cart</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <form id="productForm" class="mt-3"></form>
+                <div id="productsList" class="mt-5">
+                    <h2>Products List</h2>
+                    <div class="row" id="products"></div>
+                    <div id="pagination-controls" class="mt-3"></div>
+                </div>
+            </div>
 
-  <h2>Add Product</h2>
-  <form id="productForm">
-
-    <input type="text" id="title" name="title" required>
-    <label for="title"><<--Title </label></br>
-
-    <input type="text" id="despcription" name="despcription" required>
-    <label for="despcription"><<--Despcription </label></br>
-
-    <input type="text" id="code" name="code" required>
-    <label for="code"><<--Code </label></br>
-
-    <input type="number" id="price" name="price" required>
-    <label for="price"><<--Price </label></br>
-
-    <input type="number" id="stock" name="stock" required>
-    <label for="stock"><<--Stock </label></br>
-
-    <input type="text" id="category" name="category" required>
-    <label for="category"><<--Category </label></br>
-
-    <input type="text" id="thumbnails" name="thumbnails">
-    <label for="thumbnails"><<--Thumbnails </label></br>
-
-    <button type="submit">Add</button>
-  </form>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
-
-
+            <div class="col-md-6">
+                <h2>Cart</h2>
+                <div id="cart" class="mt-3">
+                    <ul class="list-group" id="cart-items">
+                    </ul>
+                    <p id="empty-cart" style="display: none;">No products in cart</p>
+                    <button class="btn btn-danger mt-3" onclick="clearCart()">Clear Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
