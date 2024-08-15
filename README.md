@@ -2,7 +2,7 @@
 
 Este es un proyecto de Ecommerce construido con **Node.js**, **Express**, **MongoDB**, y **Handlebars**.
 
-## 🚀 Clonar el Proyecto
+## Clonar el Proyecto
 
 Para clonar este proyecto, sigue estos pasos:
 
@@ -11,7 +11,7 @@ git clone https://github.com/chicopilar/practicasIntegradoras.git
 cd nuevo-repositorio
 ```
 
-### 📦 Instalar Dependencias
+### Instalar Dependencias
 
 Una vez que hayas clonado el repositorio, necesitas instalar las dependencias necesarias. Ejecuta el siguiente comando:
 
@@ -21,7 +21,7 @@ npm install
 
 Esto instalará todas las dependencias listadas en el archivo \`package.json\`.
 
-### ▶️ Iniciar el Proyecto
+### Iniciar el Proyecto
 
 Para iniciar el servidor, simplemente ejecuta el siguiente comando:
 
@@ -31,7 +31,7 @@ npm start
 
 El servidor se ejecutará en el puerto **8080** por defecto. Puedes acceder a la aplicación en tu navegador web en [http://localhost:8080](http://localhost:8080).
 
-## 📡 Endpoints
+## Endpoints
 
 A continuación se presentan los endpoints disponibles en esta aplicación junto con ejemplos de uso:
 
@@ -128,7 +128,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 curl -X DELETE "http://localhost:8080/api/products/66ba86119b062597b6a6aa46"
 ```
 
-## 🛒 Carrito de Compras
+## Carrito de Compras
 
 ### Ver el Carrito
 
@@ -192,11 +192,11 @@ curl -X POST -H "Content-Type: application/json" -d '{
 curl -X POST "http://localhost:8080/api/carts/clear"
 ```
 
-## 📝 Sobre el Proyecto
+## Sobre el Proyecto
 
 Este proyecto de Ecommerce está diseñado para proporcionar una plataforma básica donde los usuarios pueden gestionar productos y carritos de compra. Utiliza **Node.js** y **Express** para el servidor, **MongoDB** para la base de datos y **Handlebars** para las vistas. El proyecto también incluye funcionalidades en tiempo real usando **Socket.IO**, lo que permite que los cambios en los productos y carritos se reflejen inmediatamente en la interfaz de usuario.
 
-### 🛠️ Funcionalidades Clave
+### Funcionalidades Clave
 
 - **Gestión de Productos:** Crear, leer, actualizar y eliminar productos.
 - **Gestión de Carritos:** Agregar productos al carrito, eliminar productos del carrito y vaciar el carrito.
